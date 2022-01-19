@@ -42,6 +42,10 @@ class SinglyLinkedList {
         prev.next = null;
         this.tail = prev;
         this.length--;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
         return temp;
     }
 }
