@@ -30,17 +30,35 @@ class SinglyLinkedList {
         this.length++;
         return this; //returs the whole list
     }
+    pop() {
+        if (!this.head) return undefined
+        var temp = this.head;
+        var prev = this.head;
+
+        while (temp.next !== null) { //is same as temp.next
+
+            prev = temp;
+            temp = prev.next;
+
+
+            if (temp === this.tail) {
+                prev.next = null;
+                this.tail = prev;
+                this.length--;
+            }
+        }
+        return temp;
+    }
 }
 
 //Interface
 var list = new SinglyLinkedList()
-list.push("hello"); //this will add on to the end of the list
-list.push("Welcome");
-list.push("Manu");
-
+// list.push("hello"); //this will add on to the end of the list
+// list.push("Welcome");
+// list.push("Manu");
 
 /**
- *  illustrate how it works.  Imagine this is our list:
+ *  illustrate how it works.  Imagine this is our list, Push Operation:
 
 45 ---> 78 ---> 99
                TAIL
