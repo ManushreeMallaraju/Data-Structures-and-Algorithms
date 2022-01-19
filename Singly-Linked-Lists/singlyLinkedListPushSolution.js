@@ -35,18 +35,13 @@ class SinglyLinkedList {
         var temp = this.head;
         var prev = this.head;
 
-        while (temp.next !== null) { //is same as temp.next
-
+        while (temp.next) { //is same as temp.next
             prev = temp;
             temp = prev.next;
-
-
-            if (temp === this.tail) {
-                prev.next = null;
-                this.tail = prev;
-                this.length--;
-            }
         }
+        prev.next = null;
+        this.tail = prev;
+        this.length--;
         return temp;
     }
 }
