@@ -30,35 +30,6 @@ class SinglyLinkedList {
         this.length++;
         return this; //returs the whole list
     }
-    pop() {
-        if (!this.head) return undefined
-        var temp = this.head;
-        var prev = this.head;
-
-        while (temp.next) { //is same as temp.next
-            prev = temp;
-            temp = prev.next;
-        }
-        prev.next = null;
-        this.tail = prev;
-        this.length--;
-        if (this.length === 0) {
-            this.head = null;
-            this.tail = null;
-        }
-        return temp;
-    }
-    shift() {
-        if (!this.head) return undefined
-
-        var temp = this.head;
-        this.head = temp.next;
-        this.length--;
-        if (this.length === 0) {
-            this.tail = null;
-        }
-        return temp;
-    }
 }
 
 //Interface
