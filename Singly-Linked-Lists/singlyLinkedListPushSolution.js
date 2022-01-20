@@ -48,6 +48,17 @@ class SinglyLinkedList {
         }
         return temp;
     }
+    shift() {
+        if (!this.head) return undefined
+
+        var temp = this.head;
+        this.head = temp.next;
+        this.length--;
+        if (this.length === 0) {
+            this.tail = null;
+        }
+        return temp;
+    }
 }
 
 //Interface
