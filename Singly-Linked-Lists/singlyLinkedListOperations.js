@@ -14,6 +14,11 @@ class SinglyLinkedList {
         this.tail = null;
         this.length = 0;
     }
+    /**
+     * Inserts a Node at the end of the List
+     * @param {*} val the value of new Node
+     * @returns the newly updated List
+     */
     push(val) {
         var newNode = new Node(val);
         if (!this.head) {
@@ -27,6 +32,10 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+    /**
+     * Remove a Node from the end of the List
+     * @returns the Node removed
+     */
     pop() {
         if (!this.head) return undefined
         var temp = this.head;
@@ -45,6 +54,10 @@ class SinglyLinkedList {
         }
         return temp;
     }
+    /**
+     * Removes a Node from the beginning of the List
+     * @returns The Node removed
+     */
     shift() {
         if (!this.head) return undefined
 
@@ -56,6 +69,11 @@ class SinglyLinkedList {
         }
         return temp;
     }
+    /**
+     * Inserts a Node at the beginning of the List
+     * @param {*} val the value of the new Node
+     * @returns the newly updated List
+     */
     unshift(val) {
         var newNode = new Node(val);
         if (!this.head) {
@@ -68,6 +86,23 @@ class SinglyLinkedList {
         this.length++;
 
         return this;
+    }
+
+    /**
+     * Retrives a Node by it's position in the Linked List
+     * @param {*} pos, index of the Node
+     * @returns a Node in the given position
+     */
+    get(pos) {
+        if (pos < 0 || pos >= this.length) return null;
+        var counter = 0;
+        var temp = this.head;
+        while (pos !== counter) {
+            temp = temp.next;
+            counter++;
+
+        }
+        return temp;
     }
 }
 
