@@ -135,6 +135,25 @@ class SinglyLinkedList {
         this.length++;
         return true;
     }
+    remove(pos) {
+        if (pos < 0 || pos > this.length) return undefined
+        if (pos === this.length - 1) {
+            this.pop();
+            //             console.log(list);
+            return true;
+        }
+        if (pos === 0) {
+            this.shift();
+            //             console.log(list);
+            return true;
+        }
+
+        var prev = this.get(pos - 1);
+        prev.next = prev.next.next;
+        this.length--;
+        //         console.log(list);
+        return true;
+    }
 }
 
 
