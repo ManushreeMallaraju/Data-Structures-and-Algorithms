@@ -135,24 +135,21 @@ class SinglyLinkedList {
         this.length++;
         return true;
     }
+    /**
+     * Remove a Node from the Linked List at a specific position.
+     * @param {*} pos, index of the Node to be removed
+     * @returns 
+     */
     remove(pos) {
         if (pos < 0 || pos > this.length) return undefined
-        if (pos === this.length - 1) {
-            this.pop();
-            //             console.log(list);
-            return true;
-        }
-        if (pos === 0) {
-            this.shift();
-            //             console.log(list);
-            return true;
-        }
+        if (pos === this.length - 1) return this.pop();
+        if (pos === 0) return this.shift();
 
-        var prev = this.get(pos - 1);
-        prev.next = prev.next.next;
+        var previousNode = this.get(pos - 1);
+        var removed = previousNode.next;
+        previousNode.next = removed.next;
         this.length--;
-        //         console.log(list);
-        return true;
+        return removed;
     }
 }
 
