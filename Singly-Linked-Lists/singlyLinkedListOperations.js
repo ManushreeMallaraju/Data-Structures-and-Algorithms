@@ -116,29 +116,22 @@ class SinglyLinkedList {
         }
         return false;
     }
-    insert(val, pos) {
-
-        var lengthCheck = this.length + 1;
-
+    /**
+     * Adds a Node to the Linked List at a specific position
+     * @param {*} pos the index of the newNode
+     * @param {*} val the new value to be inserted
+     * @returns true if Node inserted
+     */
+    insert(pos, val) {
         if (pos < 0 || pos > this.length) return false
-
-        if (pos === 0) {
-            var list = this.unshift(val);
-            console.log(list);
-            if (lengthCheck === this.length) return true;
-        }
-
-        if (pos === this.length) {
-            this.push(val);
-            if (lengthCheck === this.length) return true;
-        }
+        if (pos === this.length) return !!this.push(val);  //!! -> double negate -> !2 -> gives false, corse to boolean 
+        if (pos === 0) return !!this.unshift(val);         // !!2 -> true : gives opposite 
 
         var newNode = new Node(val);
         var prev = this.get(pos - 1);
         var temp = prev.next;
         prev.next = newNode;
         newNode.next = temp;
-
         this.length++;
         return true;
     }
