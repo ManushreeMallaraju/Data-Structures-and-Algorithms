@@ -151,6 +151,50 @@ class SinglyLinkedList {
         this.length--;
         return removed;
     }
+    /** 
+     * print() helps to trase reverse()
+    */
+    print() {
+        var arr = [];
+        var current = this.head;
+        while (current) {
+            arr.push(current.val)
+            current = current.next;
+        }
+        console.log(arr);
+    }
+    /**
+     * Reverses the Nodes in the Linked List in place.
+     * @returns the reversed linked list
+     */
+    reverse() {
+        //Step 1: Initialize three pointers prev as NULL, curr as head and next as NULL.
+        //STep 2: Swap head and tail
+        var current = this.head;
+        this.head = this.tail;
+        this.tail = current;
+
+        var prev = null;
+        var next = null;
+
+
+        //Step 3: Iterate trough the linked list. In loop, do following.
+
+        for (var i = 0; i < this.length; i++) {
+            //Before changing next of current,
+            // store next node
+            next = current.next;
+
+            //Now change next of current
+            // This is where actual reversing happens
+            current.next = prev;
+
+            //Move prev and curr one step forward
+            prev = current;
+            current = next;
+        }
+        return this;
+    }
 }
 
 
