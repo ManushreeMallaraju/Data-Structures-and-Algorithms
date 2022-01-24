@@ -116,6 +116,32 @@ class SinglyLinkedList {
         }
         return false;
     }
+    insert(val, pos) {
+
+        var lengthCheck = this.length + 1;
+
+        if (pos < 0 || pos > this.length) return false
+
+        if (pos === 0) {
+            var list = this.unshift(val);
+            console.log(list);
+            if (lengthCheck === this.length) return true;
+        }
+
+        if (pos === this.length) {
+            this.push(val);
+            if (lengthCheck === this.length) return true;
+        }
+
+        var newNode = new Node(val);
+        var prev = this.get(pos - 1);
+        var temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+
+        this.length++;
+        return true;
+    }
 }
 
 
