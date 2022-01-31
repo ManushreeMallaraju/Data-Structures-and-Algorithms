@@ -176,6 +176,28 @@ class DoublyLinkedList {
         }
         return false;
     }
+    insert(index, value) {
+        //if the index is invalid, return false
+        if (index < 0 || index >= this.length) return false
+
+        //if index is exactly 0, 
+        if (index === 0) return !!this.unshift(value); //using !! -> coare it to boolean here, if success returns true not the list
+        if (index === this.length) return !!this.push(value);  // valid because we can insert at the end of the list
+
+        var newNode = new Node(value);
+        var beforeNode = this.get(index - 1);
+        var afterNode = beforeNode.next;
+
+        console.log('Insert between: ', beforeNode, +'---' + afterNode);
+
+        beforeNode.next = newNode;
+        newNode.prev = beforeNode;
+        newNode.next = afterNode;
+        afterNode.prev = newNode;
+
+        this.length++;
+        return true;
+    }
 }
 
 var list = new DoublyLinkedList();
