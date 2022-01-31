@@ -36,10 +36,6 @@ class DoublyLinkedList {
         if (this.length === 0) {
             this.head = newNode;
             this.tail = newNode;
-            this.head.next = null;
-            this.head.prev = null;
-            this.tail.next = null;
-            this.tail.prev = null;
         }
         //if not, set the next property of the tail to be that node
         else {
