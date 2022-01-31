@@ -55,7 +55,7 @@ class DoublyLinkedList {
      */
     pop() {
         //if there is no head, return undefined
-        if (!head) return undefined;
+        if (!this.head) return undefined;
 
         //store the current tail in a varaible to return later
         var temp = this.tail;
@@ -72,7 +72,6 @@ class DoublyLinkedList {
             this.tail = temp.prev;
             this.tail.next = null;
             temp.prev = null;
-
         }
         this.length--;
         return temp;
