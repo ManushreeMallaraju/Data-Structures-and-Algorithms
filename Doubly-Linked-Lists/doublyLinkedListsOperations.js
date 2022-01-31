@@ -134,12 +134,11 @@ class DoublyLinkedList {
         //If index is invalid return null
         if (pos < 0 || pos >= this.length) return null;
 
-        var counter;
-        var temp;
+        var counter, temp;
 
         //if the index is in hte first half of the list, loop through the list from the head towards the middle
         if (pos <= Math.floor(this.length / 2)) {
-            console.log('Entered 1st half..')
+            // console.log('Entered 1st half..')
             counter = 0;
             temp = this.head;
             while (counter !== pos) {
@@ -149,7 +148,7 @@ class DoublyLinkedList {
         }
         //if the index is in the second half of the list, loop through the list from the tail towards the middle
         else {
-            console.log('Entered 2nd half..')
+            // console.log('Entered 2nd half..')
             counter = this.length - 1;
             temp = this.tail;
             while (counter !== pos) {
@@ -157,7 +156,7 @@ class DoublyLinkedList {
                 counter--;
             }
         }
-        console.log('Position: ', counter);
+        // console.log('Position: ', counter);
         //return the node once found
         return temp;
     }
