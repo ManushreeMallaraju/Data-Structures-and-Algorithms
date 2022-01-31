@@ -160,6 +160,22 @@ class DoublyLinkedList {
         //return the node once found
         return temp;
     }
+    /**
+     * Method to replace a value of a Node at a given index of the DLL
+     * @param {*} index the index where value should be updated
+     * @param {*} newValue the newValue to be updated
+     * @returns 
+     */
+    set(index, newValue) {
+        //Using get() to find the Node at a given position
+        var foundNode = this.get(index);
+
+        if (foundNode !== null) {
+            foundNode.val = newValue;
+            return true;
+        }
+        return false;
+    }
 }
 
 var list = new DoublyLinkedList();
