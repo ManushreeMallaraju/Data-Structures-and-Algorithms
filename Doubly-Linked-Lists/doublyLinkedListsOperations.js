@@ -82,7 +82,7 @@ class DoublyLinkedList {
      */
     shift() {
         // if length is 0, return undefined
-        if (!this.length) return undefined;
+        if (this.length === 0) return undefined;
 
         //store the current head property in a variable, called old head.
         var oldHead = this.head;
