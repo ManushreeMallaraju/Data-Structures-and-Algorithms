@@ -125,4 +125,45 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+    /**
+     * Method to access a node in a DLL by it's index
+     * @param {*} pos, index of the list
+     * @returns the value found in the given index
+     */
+    get(pos) {
+        if (pos < 0 || pos >= this.length) return null;
+
+        var counter;
+        var temp;
+
+        if (pos <= Math.floor(this.length / 2)) {
+            console.log('Entered 1st half..')
+            counter = 0;
+            temp = this.head;
+            while (counter !== pos) {
+                temp = temp.next;
+                counter++;
+            }
+        }
+        else {
+            console.log('Entered 2nd half..')
+            counter = this.length - 1;
+            temp = this.tail;
+            while (counter !== pos) {
+                temp = temp.prev;
+                counter--;
+            }
+        }
+        console.log('Position: ', counter);
+        return temp.val;
+    }
 }
+
+var list = new DoublyLinkedList();
+list.push(10); //pos = 0
+list.push(20); //pos = 1
+list.push(30); //pos = 2
+list.push(40); //pos = 3
+list.push(50); //pos = 4
+list.push(60); //pos = 5
+console.log(list);
