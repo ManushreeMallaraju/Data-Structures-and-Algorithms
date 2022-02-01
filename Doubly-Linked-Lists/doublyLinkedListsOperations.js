@@ -197,6 +197,27 @@ class DoublyLinkedList {
         this.length++;
         return true;
     }
+    /**
+     * Method remove a node at a given index 
+     * @param {*} index the position in the list
+     * @returns removed node from the list
+     */
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+
+        var removeNode = this.get(index);
+        var beforeNode = removeNode.prev;
+        var afterNode = removeNode.next;
+        beforeNode.next = afterNode;
+        afterNode.prev = beforeNode;
+        removeNode.next = null;
+        removeNode.prev = null;
+        console.log('Before Node:', beforeNode);
+        console.log('After Node:', afterNode);
+        return removeNode;
+    }
 }
 
 var list = new DoublyLinkedList();
