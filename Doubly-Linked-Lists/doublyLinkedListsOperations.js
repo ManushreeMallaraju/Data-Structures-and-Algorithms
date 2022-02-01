@@ -210,12 +210,14 @@ class DoublyLinkedList {
         var removeNode = this.get(index);
         var beforeNode = removeNode.prev;
         var afterNode = removeNode.next;
+
         beforeNode.next = afterNode;
         afterNode.prev = beforeNode;
+        // removeNode.prev.next = removeNode.next; can also do this way
+        // removeNode.next.prev = removeNode.prev;
         removeNode.next = null;
         removeNode.prev = null;
-        console.log('Before Node:', beforeNode);
-        console.log('After Node:', afterNode);
+        this.length--;
         return removeNode;
     }
 }
