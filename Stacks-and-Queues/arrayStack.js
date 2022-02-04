@@ -1,4 +1,4 @@
-//Using push and pop on arrays -> gives a stack implementation - LIFO
+//Using push and pop on arrays -> gives a stack implementation - LIFO -> Last In First Out order
 var stack = [];
 
 stack.push('google');
