@@ -11,6 +11,41 @@ class BinarySearchTree {
         this.root = null;
     }
 
+    /**
+     * Method to insert new Node to the Binary Tree
+     * @param {*} value new value to insert into the BST
+     * @returns the updated tree
+     */
+    insert(value) {
+        var newNode = new Node(value);
+        if (this.root === null) {
+            this.root = newNode;
+            return this;
+        }
+        else {
+            var current = this.root;
+            //using while true, break out of the loop, once we insert the Node;
+            while (true) {
+                if (value === current.value) return undefined;
+                if (value < current.value) {
+                    if (current.left === null) {
+                        current.left = newNode;
+                        return this;
+                    }
+                    current = current.left;
+                }
+                else {
+                    if (current.right === null) {
+                        current.right = newNode;
+                        return this;
+                    }
+                    current = current.right;
+                }
+            }
+        }
+    }
+
+    /** Contains psuedocode and code to insert a new Node into Binary Tree 
     insert(value) {
         //Step 1: Create a new Node
         var newNode = new Node(value);
@@ -56,6 +91,7 @@ class BinarySearchTree {
             }
         }
     }
+    */
 }
 
 //Valid Binary Tree
@@ -63,6 +99,7 @@ var tree = new BinarySearchTree();
 tree.insert(10);
 tree.insert(13);
 
+// Visual Representation
 //          10
 //    5           13
 // 2     7     11     16
