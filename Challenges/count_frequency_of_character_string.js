@@ -1,6 +1,6 @@
 function countAmountOfEachCharacter(inputString) {
 
-    let inputString = [...input];
+    let inpString = [...inputString];
 
     // NOTE: Ways to convert string..
     //  var inpString = inputString.split("");
